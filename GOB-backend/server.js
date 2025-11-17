@@ -39,7 +39,7 @@ app.use("/api/auth", authRoutes);
 app.use("/api/scans", scanRoutes);
 app.use("/api/users", userRoutes);
 
-app.get("/", (req, res) => res.send("NetMapper API running..."));
+app.get("/", (req, res) => res.send("Glimpse of bharat API running..."));
 
 const PORT = 4000;
 app.listen(PORT, () => console.log(`Server working fine on ${PORT}`));
