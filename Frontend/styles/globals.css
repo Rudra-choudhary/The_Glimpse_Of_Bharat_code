@@ -1,0 +1,377 @@
+/* RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ========================================
+   GLOBAL THEME VARIABLES (Light Mode Only)
+======================================== */
+:root {
+  --bg: #ffffff;
+  --text: #1a1a1a;
+  --muted: #555;
+  --card: #f9f9f9;
+  --border: #e4e4e4;
+  --primary: #1a3e72;
+}
+
+/* GLOBAL */
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Inter', sans-serif;
+  min-height: 100vh;
+}
+
+/* ========================================
+   BLOB ANIMATION
+======================================== */
+.blob {
+  position: fixed;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.35;
+  z-index: 0;
+}
+
+.blob-1 {
+  width: 420px;
+  height: 420px;
+  background: linear-gradient(135deg, #5e7fe1 0%, #8c60d8 100%);
+  top: -10%;
+  left: -10%;
+  animation: float1 14s infinite ease-in-out;
+}
+
+.blob-2 {
+  width: 350px;
+  height: 350px;
+  background: linear-gradient(135deg, #e46fe9 0%, #f5576c 100%);
+  bottom: -10%;
+  right: -10%;
+  animation: float2 16s infinite ease-in-out;
+}
+
+@keyframes float1 {
+  0%,100% { transform: translate(0) scale(1); }
+  50% { transform: translate(45px,-35px) scale(1.1); }
+}
+@keyframes float2 {
+  0%,100% { transform: translate(0) scale(1); }
+  50% { transform: translate(-35px,35px) scale(1.12); }
+}
+
+/* ========================================
+   NAVBAR
+======================================== */
+.navbar {
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+  padding: 18px 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  width: 100%;
+  z-index: 10;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 30px;
+}
+
+.nav-links li {
+  font-size: 15px;
+  cursor: pointer;
+  opacity: 0.75;
+  transition: 0.2s;
+}
+.nav-links li:hover {
+  opacity: 1;
+}
+
+.btn-primary {
+  background: var(--primary);
+  color: #fff;
+  padding: 10px 18px;
+  font-size: 14px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  transition: 0.2s;
+}
+.btn-primary:hover {
+  opacity: 0.9;
+}
+
+/* ========================================
+   HERO SECTION
+======================================== */
+.hero {
+  text-align: center;
+  padding: 160px 20px 80px;
+  z-index: 2;
+  position: relative;
+}
+
+.hero h1 {
+  font-family: "Playfair Display", serif;
+  font-size: 42px;
+  max-width: 900px;
+  margin: auto;
+  line-height: 1.4;
+}
+
+.hero p {
+  max-width: 600px;
+  opacity: 0.75;
+  margin: 20px auto 0;
+  font-size: 18px;
+}
+
+/* ========================================
+   INFO CARDS
+======================================== */
+.info-cards {
+  max-width: 1100px;
+  margin: auto;
+  padding: 60px 20px;
+  display: flex;
+  gap: 25px;
+  justify-content: center;
+  flex-wrap: wrap;
+  z-index: 2;
+  position: relative;
+}
+
+.info-card {
+  width: 300px;
+  padding: 22px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  box-shadow: 0px 4px 18px rgba(0,0,0,0.05);
+  transition: 0.25s ease;
+}
+.info-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0px 8px 28px rgba(0,0,0,0.08);
+}
+.info-card h3 {
+  font-family: "Playfair Display", serif;
+  margin-bottom: 8px;
+}
+
+/* ========================================
+   STORY SECTION
+======================================== */
+.story {
+  max-width: 1100px;
+  margin: auto;
+  padding: 80px 20px;
+  display: flex;
+  align-items: center;
+  gap: 50px;
+  flex-wrap: wrap;
+  position: relative;
+  z-index: 2;
+}
+
+.story-img {
+  width: 380px;
+  height: 260px;
+  background: var(--border);
+  border-radius: 14px;
+}
+
+.story-text h4 {
+  font-size: 14px;
+  opacity: 0.6;
+  letter-spacing: 1px;
+}
+.story-text h2 {
+  font-family: "Playfair Display", serif;
+  font-size: 34px;
+  margin-top: 8px;
+  margin-bottom: 10px;
+}
+
+/* ========================================
+   TEAM SECTION
+======================================== */
+.team {
+  max-width: 1100px;
+  margin: auto;
+  padding: 80px 20px;
+  text-align: center;
+  position: relative;
+  z-index: 2;
+}
+
+.team h2 {
+  font-size: 32px;
+  font-family: "Playfair Display", serif;
+}
+
+.team p {
+  opacity: 0.7;
+  max-width: 600px;
+  margin: auto;
+}
+
+.team-cards {
+  display: flex;
+  justify-content: center;
+  gap: 28px;
+  margin-top: 50px;
+  flex-wrap: wrap;
+}
+
+.team-card {
+  width: 170px;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 18px;
+  box-shadow: 0 3px 14px rgba(0,0,0,0.05);
+  transition: 0.25s ease;
+}
+.team-card:hover {
+  transform: translateY(-4px);
+}
+.avatar {
+  width: 65px;
+  height: 65px;
+  background: #ccc;
+  border-radius: 50%;
+  margin: auto;
+  margin-bottom: 10px;
+}
+
+/* ========================================
+   FOOTER
+======================================== */
+.footer {
+  text-align: center;
+  padding: 50px 10px;
+  opacity: 0.6;
+  font-size: 14px;
+  border-top: 1px solid var(--border);
+}
+
+/* ========================================
+   AUTH PAGES (Login & Signup)
+======================================== */
+.auth-container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 40px 20px;
+  z-index: 2;
+}
+
+.auth-box {
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 20px;
+  padding: 40px;
+  width: 400px;
+  max-width: 95%;
+  text-align: center;
+  backdrop-filter: blur(20px);
+  box-shadow: 0 8px 35px rgba(0,0,0,0.25);
+  z-index: 3;
+}
+
+.auth-box h2 {
+  font-family: "Playfair Display", serif;
+  margin-bottom: 20px;
+}
+
+.auth-box form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.auth-box input {
+  padding: 12px 16px;
+  font-size: 14px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  outline: none;
+}
+
+.auth-box input:focus {
+  border-color: var(--primary);
+}
+
+.auth-box button {
+  background: var(--primary);
+  color: #fff;
+  padding: 12px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: 0.25s;
+}
+
+.auth-box button:hover {
+  opacity: 0.9;
+}
+
+.message {
+  margin-top: 15px;
+  font-size: 14px;
+  border-radius: 8px;
+  padding: 10px;
+}
+
+.message.success {
+  background: rgba(67, 233, 123, 0.2);
+  color: #2fa865;
+}
+
+.message.error {
+  background: rgba(245, 87, 108, 0.2);
+  color: #d94858;
+}
+
+/* ========================================
+   RESPONSIVE
+======================================== */
+@media (max-width: 900px) {
+  .story {
+    flex-direction: column;
+    text-align: center;
+  }
+  .story-img {
+    max-width: 360px;
+    width: 100%;
+  }
+}
+
+
+/* team avatar */
+.avatar-img {
+  width: 75px;
+  height: 75px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin: auto;
+  display: block;
+  margin-bottom: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  border: 3px solid var(--bg);
+  transition: 0.25s;
+}
+
+.team-card:hover .avatar-img {
+  transform: scale(1.05);
+}
