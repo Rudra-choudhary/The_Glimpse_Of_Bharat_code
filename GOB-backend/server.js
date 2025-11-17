@@ -41,5 +41,5 @@ app.use("/api/users", userRoutes);
 
 app.get("/", (req, res) => res.send("NetMapper API running..."));
 
-const PORT = 4000;
+const PORT = 5000;
 app.listen(PORT, () => console.log(`Server working fine on ${PORT}`));
