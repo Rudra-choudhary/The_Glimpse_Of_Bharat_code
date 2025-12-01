@@ -18,7 +18,7 @@ export default function FighterDetail() {
 
     const fetchFighter = async () => {
         try {
-            const res = await fetch(`http://localhost:4000/api/fighters/${id}`);
+            const res = await fetch(`https://the-glimpse-of-bharat.onrender.com/api/fighters/${id}`);
             if (res.ok) {
                 const data = await res.json();
                 setFighter(data);

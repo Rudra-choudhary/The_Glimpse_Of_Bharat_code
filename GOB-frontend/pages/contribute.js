@@ -25,7 +25,7 @@ export default function Contribute() {
 
     const fetchFighters = async () => {
         try {
-            const res = await axios.get("http://localhost:4000/api/fighters?limit=100");
+            const res = await axios.get("https://the-glimpse-of-bharat.onrender.com/api/fighters?limit=100");
             setFighters(res.data.fighters);
         } catch (err) {
             console.error(err);
@@ -67,7 +67,7 @@ export default function Contribute() {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            await axios.post("http://localhost:4000/api/contributions", {
+            await axios.post("https://the-glimpse-of-bharat.onrender.com/api/contributions", {
                 ...formData,
                 type: activeTab,
             });

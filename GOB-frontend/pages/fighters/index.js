@@ -31,7 +31,7 @@ export default function BrowseFighters() {
             if (roleFilter !== 'all') params.append('role', roleFilter);
             if (locationFilter !== 'all') params.append('location', locationFilter);
 
-            const res = await fetch(`http://localhost:4000/api/fighters?${params}`);
+            const res = await fetch(`https://the-glimpse-of-bharat.onrender.com/api/fighters?${params}`);
             const data = await res.json();
             setFighters(data.fighters || []);
             setPagination(data.pagination || { total: 0, page: 1, pages: 1 });

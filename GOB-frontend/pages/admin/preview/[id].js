@@ -27,7 +27,7 @@ export default function PreviewContribution() {
             // For now, let's assume we can filter from the list if we had state management,
             // but since this is a new page, we should probably add a GET /:id route to contributionController.
             // OR, we can just fetch all pending and find it.
-            const res = await axios.get("http://localhost:4000/api/contributions?status=pending", {
+            const res = await axios.get("https://the-glimpse-of-bharat.onrender.com/api/contributions?status=pending", {
                 headers: { Authorization: `Bearer ${token}` }
             });
             const found = res.data.find(c => c._id === id);

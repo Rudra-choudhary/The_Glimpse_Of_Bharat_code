@@ -15,7 +15,7 @@ export default function AdminLogin() {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const res = await axios.post("http://localhost:4000/api/auth/login", formData);
+            const res = await axios.post("https://the-glimpse-of-bharat.onrender.com/api/auth/login", formData);
 
             if (res.data.user.role !== "admin") {
                 setError("Access denied. Admin privileges required.");

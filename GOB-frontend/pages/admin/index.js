@@ -40,7 +40,7 @@ export default function AdminDashboard() {
     const fetchContributions = async () => {
         try {
             const token = localStorage.getItem("token");
-            const res = await axios.get("http://localhost:4000/api/contributions?status=pending", {
+            const res = await axios.get("https://the-glimpse-of-bharat.onrender.com/api/contributions?status=pending", {
                 headers: { Authorization: `Bearer ${token}` }
             });
             setContributions(res.data);
@@ -53,7 +53,7 @@ export default function AdminDashboard() {
 
     const fetchFighters = async () => {
         try {
-            const res = await axios.get("http://localhost:4000/api/fighters?limit=100");
+            const res = await axios.get("https://the-glimpse-of-bharat.onrender.com/api/fighters?limit=100");
             setFighters(res.data.fighters);
         } catch (err) {
             console.error(err);
@@ -63,7 +63,7 @@ export default function AdminDashboard() {
     const handleStatusUpdate = async (id, status) => {
         try {
             const token = localStorage.getItem("token");
-            await axios.put(`http://localhost:4000/api/contributions/${id}/status`,
+            await axios.put(`https://the-glimpse-of-bharat.onrender.com/api/contributions/${id}/status`,
                 { status },
                 { headers: { Authorization: `Bearer ${token}` } }
             );
@@ -78,7 +78,7 @@ export default function AdminDashboard() {
         if (!confirm("Are you sure you want to delete this fighter? This action cannot be undone.")) return;
         try {
             const token = localStorage.getItem("token");
-            await axios.delete(`http://localhost:4000/api/fighters/${id}`, {
+            await axios.delete(`https://the-glimpse-of-bharat.onrender.com/api/fighters/${id}`, {
                 headers: { Authorization: `Bearer ${token}` }
             });
             alert("Fighter deleted successfully");
@@ -101,7 +101,7 @@ export default function AdminDashboard() {
         e.preventDefault();
         try {
             const token = localStorage.getItem("token");
-            await axios.put(`http://localhost:4000/api/fighters/${editingFighter.id}`, editingFighter, {
+            await axios.put(`https://the-glimpse-of-bharat.onrender.com/api/fighters/${editingFighter.id}`, editingFighter, {
                 headers: { Authorization: `Bearer ${token}` }
             });
             alert("Fighter updated successfully!");
@@ -121,7 +121,7 @@ export default function AdminDashboard() {
         e.preventDefault();
         try {
             const token = localStorage.getItem("token");
-            await axios.post("http://localhost:4000/api/fighters", fighterData, {
+            await axios.post("https://the-glimpse-of-bharat.onrender.com/api/fighters", fighterData, {
                 headers: { Authorization: `Bearer ${token}` }
             });
             alert("Fighter created successfully!");

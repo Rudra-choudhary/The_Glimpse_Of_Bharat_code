@@ -24,7 +24,7 @@ export default function Signup() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post("http://localhost:4000/api/auth/signup", formData);
+      await axios.post("https://the-glimpse-of-bharat.onrender.com/api/auth/signup", formData);
       setError("");
       setMessage("Signup successful! Redirecting to login...");
       setTimeout(() => router.push("/login"), 1200);
