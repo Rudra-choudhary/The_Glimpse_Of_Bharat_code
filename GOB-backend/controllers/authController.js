@@ -1,7 +1,7 @@
 // controllers/authController.js
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
-const prisma = require("../config/prisma");
+const User = require("../models/User");
 
 exports.signup = async (req, res) => {
   try {
@@ -11,20 +11,22 @@ exports.signup = async (req, res) => {
       return res.status(400).json({ message: "All fields required" });
     }
 
-    const existing = await prisma.user.findUnique({ where: { email } });
+    const existing = await User.findOne({ email });
     if (existing) {
       return res.status(400).json({ message: "User already exists" });
     }
 
     const hashed = await bcrypt.hash(password, 10);
 
-    const newUser = await prisma.user.create({
-      data: { name, email, password: hashed },
+    const newUser = await User.create({
+      name,
+      email,
+      password: hashed,
     });
 
     return res.status(201).json({
       message: "User created successfully",
-      user: { id: newUser.id, email: newUser.email, name: newUser.name },
+      user: { id: newUser._id, email: newUser.email, name: newUser.name },
     });
   } catch (err) {
     console.error("Signup error:", err);
@@ -40,7 +42,7 @@ exports.login = async (req, res) => {
       return res.status(400).json({ message: "All fields required" });
     }
 
-    const user = await prisma.user.findUnique({ where: { email } });
+    const user = await User.findOne({ email });
     if (!user) {
       return res.status(404).json({ message: "User not found" });
     }
@@ -50,15 +52,13 @@ exports.login = async (req, res) => {
       return res.status(400).json({ message: "Invalid credentials" });
     }
 
-    await prisma.user.update({
-      where: { id: user.id },
-      data: { lastLogin: new Date() },
-    });
+    user.lastLogin = new Date();
+    await user.save();
 
     // include role + name in token so middleware can use it
     const token = jwt.sign(
       {
-        id: user.id,
+        id: user._id,
         email: user.email,
         role: user.role,
         name: user.name,
@@ -71,7 +71,7 @@ exports.login = async (req, res) => {
       message: "Login successful",
       token,
       user: {
-        id: user.id,
+        id: user._id,
         name: user.name,
         email: user.email,
         role: user.role,

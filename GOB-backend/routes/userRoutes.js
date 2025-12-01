@@ -1,21 +1,12 @@
 const express = require("express");
 const { verifyToken } = require("../middleware/authMiddleware");
-const prisma = require("../config/prisma");
+const User = require("../models/User");
 
 const router = express.Router();
 
 router.get("/me", verifyToken, async (req, res) => {
   try {
-    const user = await prisma.user.findUnique({
-      where: { id: req.user.id },
-      select: {
-        id: true,
-        name: true,
-        email: true,
-        role: true,
-        lastLogin: true,
-      },
-    });
+    const user = await User.findById(req.user.id).select("-password");
 
     if (!user) {
       return res.status(404).json({ message: "User not found" });

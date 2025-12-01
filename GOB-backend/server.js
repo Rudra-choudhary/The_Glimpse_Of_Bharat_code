@@ -3,8 +3,12 @@ const express = require("express");
 const cors = require("cors");
 const dotenv = require("dotenv");
 const morgan = require("morgan");
+const connectDB = require("./config/db");
 
 dotenv.config();
+
+// Connect to MongoDB
+connectDB();
 
 const authRoutes = require("./routes/authRoutes");
 const scanRoutes = require("./routes/scanRoutes");
@@ -38,6 +42,8 @@ app.use((req, res, next) => {
 app.use("/api/auth", authRoutes);
 app.use("/api/scans", scanRoutes);
 app.use("/api/users", userRoutes);
+app.use("/api/fighters", require("./routes/fighterRoutes"));
+app.use("/api/contributions", require("./routes/contributionRoutes"));
 
 app.get("/", (req, res) => res.send("Glimpse of bharat API running..."));
 
