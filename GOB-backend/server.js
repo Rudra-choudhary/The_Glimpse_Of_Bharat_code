@@ -20,9 +20,10 @@ app.use(morgan("dev"));
 
 app.use(
   cors({
-    origin: "http://localhost:3000",
+    origin: "https://the-glimpse-of-bharat-code.vercel.app",
     methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
     allowedHeaders: ["Content-Type", "Authorization"],
+    credentials: true,
   })
 );
 

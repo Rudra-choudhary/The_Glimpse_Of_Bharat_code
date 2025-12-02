@@ -1,40 +1,97 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/pages/api-reference/create-next-app).
+# The Glimpse of Bharat - Frontend
 
-## Getting Started
+A Next.js application showcasing India's freedom fighters with rich profiles, contributions, and historical timelines.
 
-First, run the development server:
+## 🌐 Live Application
+
+**Production URL**: [https://the-glimpse-of-bharat-code.vercel.app](https://the-glimpse-of-bharat-code.vercel.app)
+
+**Backend API**: [https://the-glimpse-of-bharat.onrender.com](https://the-glimpse-of-bharat.onrender.com)
+
+## 🚀 Features
+
+- Browse 30+ freedom fighters with pagination (20 per page)
+- Search, sort, and filter fighters by name, role, and location
+- View detailed fighter profiles with Markdown-formatted biographies
+- User authentication (signup/login)
+- Submit contributions for new fighters or updates
+- Admin dashboard for managing content
+- Responsive design with modern UI
+
+## 🛠️ Tech Stack
+
+- **Framework**: Next.js (React)
+- **HTTP Client**: Axios
+- **Styling**: Custom CSS
+- **Markdown**: react-markdown
+- **Deployment**: Vercel
+
+## 📦 Installation
 
 ```bash
+# Install dependencies
+npm install
+
+# Run development server
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+
+# Build for production
+npm run build
+
+# Start production server
+npm start
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🌍 Environment
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+The application connects to the production backend at:
+```
+https://the-glimpse-of-bharat.onrender.com
+```
 
-[API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+For local development, update API URLs in the pages to:
+```
+http://localhost:4000
+```
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) instead of React pages.
+## 📁 Project Structure
 
-This project uses [`next/font`](https://nextjs.org/docs/pages/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```
+GOB-frontend/
+├── pages/
+│   ├── index.js              # Home page
+│   ├── login.js              # User login
+│   ├── signup.js             # User registration
+│   ├── contribute.js         # Contribution form
+│   ├── fighters/
+│   │   ├── index.js          # Browse fighters (with pagination)
+│   │   └── [id].js           # Fighter detail page
+│   └── admin/
+│       ├── index.js          # Admin dashboard
+│       ├── login.js          # Admin login
+│       └── preview/[id].js   # Preview contributions
+├── styles/
+│   └── globals.css           # Global styles
+└── public/                   # Static assets
+```
 
-## Learn More
+## 🔑 Admin Access
 
-To learn more about Next.js, take a look at the following resources:
+**Email**: admin@example.com  
+**Password**: admin123
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn-pages-router) - an interactive Next.js tutorial.
+## 📖 Documentation
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Complete technical documentation available in the project repository.
 
-## Deploy on Vercel
+## 🤝 Contributing
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+1. Fork the repository
+2. Create your feature branch
+3. Commit your changes
+4. Push to the branch
+5. Open a Pull Request
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/pages/building-your-application/deploying) for more details.
+## 📄 License
+
+This project is part of "The Glimpse of Bharat" initiative.
