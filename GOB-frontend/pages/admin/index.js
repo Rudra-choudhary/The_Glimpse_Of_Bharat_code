@@ -48,6 +48,14 @@ export default function AdminDashboard() {
         } catch (err) {
             console.error(err);
             setLoading(false);
+            // If unauthorized, clear token and redirect to login
+            if (err.response?.status === 401) {
+                localStorage.removeItem("token");
+                localStorage.removeItem("userRole");
+                localStorage.removeItem("userName");
+                alert("Session expired. Please login again.");
+                router.push("/admin/login");
+            }
         }
     };
 
