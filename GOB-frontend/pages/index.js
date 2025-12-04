@@ -101,7 +101,7 @@ export default function Home() {
       <section className="story">
         <div className="story-img">
           {/* Placeholder for origin image */}
-          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/eb/Statue_of_Unity.jpg/640px-Statue_of_Unity.jpg" alt="Statue of Unity" style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: '14px' }} />
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/07/Statue_of_Unity.jpg/500px-Statue_of_Unity.jpg" alt="Statue of Unity" style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: '14px', objectPosition: 'top' }} />
         </div>
         <div className="story-text">
           <h4>OUR ORIGIN</h4>
