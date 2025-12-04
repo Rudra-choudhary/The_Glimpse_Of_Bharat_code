@@ -82,3 +82,21 @@ exports.updateContributionStatus = async (req, res) => {
         res.status(500).json({ message: "Server error" });
     }
 };
+
+exports.deleteContribution = async (req, res) => {
+    try {
+        const { id } = req.params;
+
+        const contribution = await Contribution.findById(id);
+        if (!contribution) {
+            return res.status(404).json({ message: "Contribution not found" });
+        }
+
+        await Contribution.findByIdAndDelete(id);
+
+        res.json({ message: "Contribution deleted successfully" });
+    } catch (error) {
+        console.error("Error deleting contribution:", error);
+        res.status(500).json({ message: "Server error" });
+    }
+};

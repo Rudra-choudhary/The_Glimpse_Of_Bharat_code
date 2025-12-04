@@ -82,6 +82,20 @@ export default function AdminDashboard() {
         }
     };
 
+    const handleDeleteContribution = async (id) => {
+        if (!confirm("Are you sure you want to delete this contribution? This action cannot be undone.")) return;
+        try {
+            const token = localStorage.getItem("token");
+            await axios.delete(`https://the-glimpse-of-bharat.onrender.com/api/contributions/${id}`, {
+                headers: { Authorization: `Bearer ${token}` }
+            });
+            alert("Contribution deleted successfully");
+            fetchContributions();
+        } catch (err) {
+            alert("Failed to delete contribution");
+        }
+    };
+
     const handleDeleteFighter = async (id) => {
         if (!confirm("Are you sure you want to delete this fighter? This action cannot be undone.")) return;
         try {
@@ -262,6 +276,13 @@ export default function AdminDashboard() {
                                                 Preview Page
                                             </button>
                                         )}
+                                        <button
+                                            className="btn btn-outline"
+                                            onClick={() => handleDeleteContribution(c._id)}
+                                            style={{ color: "#c0392b", borderColor: "#c0392b" }}
+                                        >
+                                            Delete
+                                        </button>
                                     </div>
                                 </div>
                             ))
